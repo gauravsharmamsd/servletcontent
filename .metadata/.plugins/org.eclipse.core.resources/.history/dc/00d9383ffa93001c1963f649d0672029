@@ -1,0 +1,48 @@
+package com.stu;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.database.StudentDAO;
+import com.database.StudentImpl;
+import com.p.StudentUtil;
+
+public class Test {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("student.xml");
+		System.out.println("Application loaded....");
+		StudentDAO studentDAO = (StudentImpl) ctx.getBean("studentimp");
+
+		/*
+		 * for one element insertion------------------- Student s = new Student();
+		 * s.setAddress("maha"); s.setName("Sonu"); s.setRollNo(25);
+		 * studentDAO.insert(s); System.out.println(s);
+		 */
+
+		
+		//  for list element insertion------------------- 
+		StudentUtil studentUtil =
+		  (StudentUtil) ctx.getBean("studentutil"); System.out.println(studentUtil);
+		  studentUtil.setUp();
+		  
+		 
+
+		/*
+		 * delete record by roll no--------------------
+		 * studentDAO.deleteRecordByRollNo(4);
+		 */
+		
+		
+	//	studentDAO.deleteRecordbyStudentNameAndStudentAddress("sonu", "Nandpur");
+
+//      StudentDAO sd=new StudentImpl();
+	
+		// 
+//      stu.deleteAllRecord(s);
+//StudentUtil st=new StudentUtil();
+//st.a
+
+	}
+
+}
